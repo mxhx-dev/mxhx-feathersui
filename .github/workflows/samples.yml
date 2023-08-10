@@ -1,0 +1,122 @@
+name: Samples
+
+on:
+  push:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-misc:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: krdlab/setup-haxe@v1
+        with:
+          haxe-version: 4.0.5
+      - name: Set up Haxelib dependencies
+        run: |
+          haxelib install lime 7.8.0 --quiet
+          haxelib install openfl 8.9.7 --quiet
+          haxelib install actuate --quiet
+          haxelib git feathersui https://github.com/feathersui/feathersui-openfl.git --quiet
+          haxelib git feathersui-binding https://github.com/feathersui/feathersui-binding.git --quiet
+          haxelib git mxhx-parser https://github.com/mxhx-dev/mxhx-parser.git --quiet
+          haxelib git mxhx-component https://github.com/mxhx-dev/mxhx-component.git --quiet
+          haxelib dev mxhx-feathersui $GITHUB_WORKSPACE
+      - name: Build samples/anchor-layout-three-column-header-and-footer
+        working-directory: samples/anchor-layout-three-column-header-and-footer
+        run: |
+          haxelib run openfl build neko
+          haxelib run openfl build html5
+          haxelib run openfl build flash
+          haxelib run openfl build hl
+      - name: Build samples/calculator
+        working-directory: samples/calculator
+        run: |
+          haxelib run openfl build neko
+          haxelib run openfl build html5
+          haxelib run openfl build flash
+          haxelib run openfl build hl
+      - name: Build samples/custom-layout-group-item-renderer
+        working-directory: samples/custom-layout-group-item-renderer
+        run: |
+          haxelib run openfl build neko
+          haxelib run openfl build html5
+          haxelib run openfl build flash
+          haxelib run openfl build hl
+      - name: Build samples/data-binding
+        working-directory: samples/data-binding
+        run: |
+          haxelib run openfl build neko
+          haxelib run openfl build html5
+          haxelib run openfl build flash
+          haxelib run openfl build hl
+      - name: Build samples/hello-world
+        working-directory: samples/hello-world
+        run: |
+          haxelib run openfl build neko
+          haxelib run openfl build html5
+          haxelib run openfl build flash
+          haxelib run openfl build hl
+      - name: Build samples/horizontal-layout-percentage-sizing
+        working-directory: samples/horizontal-layout-percentage-sizing
+        run: |
+          haxelib run openfl build neko
+          haxelib run openfl build html5
+          haxelib run openfl build flash
+          haxelib run openfl build hl
+      - name: Build samples/mxhx-styles
+        working-directory: samples/mxhx-styles
+        run: |
+          haxelib run openfl build neko
+          haxelib run openfl build html5
+          haxelib run openfl build flash
+          haxelib run openfl build hl
+
+  build-air:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: joshtynjala/setup-adobe-air-action@v2
+        with:
+          air-version: "33.1"
+          accept-license: true
+      - uses: krdlab/setup-haxe@v1
+        with:
+          haxe-version: 4.0.5
+      - name: Set up Haxelib dependencies
+        run: |
+          haxelib install lime 7.8.0 --quiet
+          haxelib install openfl 8.9.7 --quiet
+          haxelib install actuate --quiet
+          haxelib git feathersui https://github.com/feathersui/feathersui-openfl.git --quiet
+          haxelib git feathersui-binding https://github.com/feathersui/feathersui-binding.git --quiet
+          haxelib git mxhx-parser https://github.com/mxhx-dev/mxhx-parser.git --quiet
+          haxelib git mxhx-component https://github.com/mxhx-dev/mxhx-component.git --quiet
+          haxelib dev mxhx-feathersui ${{ github.workspace }}
+          haxelib run lime config AIR_SDK ${{ env.AIR_HOME }}s
+      - name: Build samples/anchor-layout-three-column-header-and-footer
+        working-directory: samples/anchor-layout-three-column-header-and-footer
+        run: |
+          haxelib run openfl build air
+      - name: Build samples/calculator
+        working-directory: samples/calculator
+        run: |
+          haxelib run openfl build air
+      - name: Build samples/data-binding
+        working-directory: samples/data-binding
+        run: |
+          haxelib run openfl build air
+      - name: Build samples/hello-world
+        working-directory: samples/hello-world
+        run: |
+          haxelib run openfl build air
+      - name: Build samples/horizontal-layout-percentage-sizing
+        working-directory: samples/horizontal-layout-percentage-sizing
+        run: |
+          haxelib run openfl build air
+      - name: Build samples/mxhx-styles
+        working-directory: samples/mxhx-styles
+        run: |
+          haxelib run openfl build air
