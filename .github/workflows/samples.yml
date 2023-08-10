@@ -104,6 +104,10 @@ jobs:
         working-directory: samples/calculator
         run: |
           haxelib run openfl build air
+      - name: Build samples/custom-layout-group-item-renderer
+        working-directory: samples/custom-layout-group-item-renderer
+        run: |
+          haxelib run openfl build air
       - name: Build samples/data-binding
         working-directory: samples/data-binding
         run: |
