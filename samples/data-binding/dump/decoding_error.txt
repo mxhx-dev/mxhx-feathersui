@@ -1,0 +1,430 @@
+[{
+	access: [APublic]
+	doc: null
+	kind: FFun({
+		args: []
+		expr: {
+			expr: EBlock([{
+				expr: ECall({
+					expr: EConst(CIdent(super))
+					pos: #pos
+				}, [])
+				pos: #pos
+			}, {
+				expr: ECall({
+					expr: EField({
+						expr: EConst(CIdent(this))
+						pos: #pos
+					}, MXHXComponent_initMXHX)
+					pos: #pos
+				}, [])
+				pos: #pos
+			}])
+			pos: #pos
+		}
+		params: []
+		ret: null
+	})
+	meta: []
+	name: new
+	pos: #pos
+}, {
+	access: [APrivate]
+	doc: null
+	kind: FFun({
+		args: []
+		expr: {
+			expr: EBlock([{
+				expr: EBinop(OpAssign, {
+					expr: EField({
+						expr: EConst(CIdent(this))
+						pos: #pos
+					}, layout)
+					pos: #pos
+				}, {
+					expr: ECall({
+						expr: EConst(CIdent(createMXHXObject_0))
+						pos: #pos
+					}, [])
+					pos: #pos
+				})
+				pos: #pos
+			}, {
+				expr: EBinop(OpAssign, {
+					expr: EField({
+						expr: EConst(CIdent(this))
+						pos: #pos
+					}, xmlContent)
+					pos: #pos
+				}, {
+					expr: EBlock([{
+						expr: EVars([{
+							expr: {
+								expr: EArrayDecl([])
+								pos: #pos
+							}
+							isFinal: false
+							meta: []
+							name: array_xmlContent
+							type: TPath({
+								name: Array
+								pack: []
+								params: [TPType(TPath({
+									name: DisplayObject
+									pack: [openfl, display]
+									params: []
+									sub: null
+								}))]
+								sub: null
+							})
+						}])
+						pos: #pos
+					}, {
+						expr: EBinop(OpAssign, {
+							expr: EArray({
+								expr: EConst(CIdent(array_xmlContent))
+								pos: #pos
+							}, {
+								expr: EConst(CInt(0))
+								pos: #pos
+							})
+							pos: #pos
+						}, {
+							expr: ECall({
+								expr: EConst(CIdent(createMXHXObject_slider))
+								pos: #pos
+							}, [])
+							pos: #pos
+						})
+						pos: #pos
+					}, {
+						expr: EBinop(OpAssign, {
+							expr: EArray({
+								expr: EConst(CIdent(array_xmlContent))
+								pos: #pos
+							}, {
+								expr: EConst(CInt(1))
+								pos: #pos
+							})
+							pos: #pos
+						}, {
+							expr: ECall({
+								expr: EConst(CIdent(createMXHXObject_1))
+								pos: #pos
+							}, [])
+							pos: #pos
+						})
+						pos: #pos
+					}, {
+						expr: EConst(CIdent(array_xmlContent))
+						pos: #pos
+					}])
+					pos: #pos
+				})
+				pos: #pos
+			}])
+			pos: #pos
+		}
+		params: null
+		ret: TPath({
+			name: Void
+			pack: []
+			params: []
+			sub: null
+		})
+	})
+	meta: [{
+		name: :noCompletion
+		params: null
+		pos: #pos
+	}]
+	name: MXHXComponent_initMXHX
+	pos: #pos
+}, {
+	access: [APrivate]
+	doc: null
+	kind: FFun({
+		args: []
+		expr: {
+			expr: EBlock([{
+				expr: EVars([{
+					expr: {
+						expr: ENew({
+							name: VerticalLayout
+							pack: [feathers, layout]
+							params: null
+							sub: null
+						}, [])
+						pos: #pos
+					}
+					isFinal: false
+					meta: []
+					name: object
+					type: null
+				}])
+				pos: #pos
+			}, {
+				expr: EBlock([{
+					expr: EBinop(OpAssign, {
+						expr: EField({
+							expr: EConst(CIdent(object))
+							pos: #pos
+						}, horizontalAlign)
+						pos: #pos
+					}, {
+						expr: EConst(CIdent(CENTER))
+						pos: #pos
+					})
+					pos: #pos
+				}, {
+					expr: EBinop(OpAssign, {
+						expr: EField({
+							expr: EConst(CIdent(object))
+							pos: #pos
+						}, verticalAlign)
+						pos: #pos
+					}, {
+						expr: EConst(CIdent(MIDDLE))
+						pos: #pos
+					})
+					pos: #pos
+				}])
+				pos: #pos
+			}, {
+				expr: EReturn({
+					expr: EConst(CIdent(object))
+					pos: #pos
+				})
+				pos: #pos
+			}])
+			pos: #pos
+		}
+		params: null
+		ret: TPath({
+			name: VerticalLayout
+			pack: [feathers, layout]
+			params: null
+			sub: null
+		})
+	})
+	meta: [{
+		name: :noCompletion
+		params: null
+		pos: #pos
+	}]
+	name: createMXHXObject_0
+	pos: #pos
+}, {
+	access: [APublic]
+	doc: null
+	kind: FVar(TPath({
+		name: HSlider
+		pack: [feathers, controls]
+		params: null
+		sub: null
+	}), null)
+	meta: null
+	name: slider
+	pos: #pos
+}, {
+	access: [APrivate]
+	doc: null
+	kind: FFun({
+		args: []
+		expr: {
+			expr: EBlock([{
+				expr: EVars([{
+					expr: {
+						expr: ENew({
+							name: HSlider
+							pack: [feathers, controls]
+							params: null
+							sub: null
+						}, [])
+						pos: #pos
+					}
+					isFinal: false
+					meta: []
+					name: object
+					type: null
+				}])
+				pos: #pos
+			}, {
+				expr: EBlock([{
+					expr: EBinop(OpAssign, {
+						expr: EField({
+							expr: EConst(CIdent(object))
+							pos: #pos
+						}, value)
+						pos: #pos
+					}, {
+						expr: EConst(CFloat(0.))
+						pos: #pos
+					})
+					pos: #pos
+				}, {
+					expr: EBinop(OpAssign, {
+						expr: EField({
+							expr: EConst(CIdent(object))
+							pos: #pos
+						}, minimum)
+						pos: #pos
+					}, {
+						expr: EConst(CFloat(0.))
+						pos: #pos
+					})
+					pos: #pos
+				}, {
+					expr: EBinop(OpAssign, {
+						expr: EField({
+							expr: EConst(CIdent(object))
+							pos: #pos
+						}, maximum)
+						pos: #pos
+					}, {
+						expr: EConst(CFloat(10.))
+						pos: #pos
+					})
+					pos: #pos
+				}, {
+					expr: EBinop(OpAssign, {
+						expr: EField({
+							expr: EConst(CIdent(object))
+							pos: #pos
+						}, snapInterval)
+						pos: #pos
+					}, {
+						expr: EConst(CFloat(1.))
+						pos: #pos
+					})
+					pos: #pos
+				}, {
+					expr: EBinop(OpAssign, {
+						expr: EField({
+							expr: EConst(CIdent(this))
+							pos: #pos
+						}, slider)
+						pos: #pos
+					}, {
+						expr: EConst(CIdent(object))
+						pos: #pos
+					})
+					pos: #pos
+				}])
+				pos: #pos
+			}, {
+				expr: EReturn({
+					expr: EConst(CIdent(object))
+					pos: #pos
+				})
+				pos: #pos
+			}])
+			pos: #pos
+		}
+		params: null
+		ret: TPath({
+			name: HSlider
+			pack: [feathers, controls]
+			params: null
+			sub: null
+		})
+	})
+	meta: [{
+		name: :noCompletion
+		params: null
+		pos: #pos
+	}]
+	name: createMXHXObject_slider
+	pos: #pos
+}, {
+	access: [APrivate]
+	doc: null
+	kind: FFun({
+		args: []
+		expr: {
+			expr: EBlock([{
+				expr: EVars([{
+					expr: {
+						expr: ENew({
+							name: Label
+							pack: [feathers, controls]
+							params: null
+							sub: null
+						}, [])
+						pos: #pos
+					}
+					isFinal: false
+					meta: []
+					name: object
+					type: null
+				}])
+				pos: #pos
+			}, {
+				expr: EBlock([{
+					expr: ECall({
+						expr: EField({
+							expr: EField({
+								expr: EField({
+									expr: EConst(CIdent(feathers))
+									pos: #pos
+								}, binding)
+								pos: #pos
+							}, DataBinding)
+							pos: #pos
+						}, bind)
+						pos: #pos
+					}, [{
+						expr: ECall({
+							expr: EField({
+								expr: EConst(CIdent(Std))
+								pos: #pos
+							}, string)
+							pos: #pos
+						}, [{
+							expr: EField({
+								expr: EConst(CIdent(slider))
+								pos: #pos
+							}, value)
+							pos: #pos
+						}])
+						pos: #pos
+					}, {
+						expr: EField({
+							expr: EConst(CIdent(object))
+							pos: #pos
+						}, text)
+						pos: #pos
+					}, {
+						expr: null <- expected value
+						pos: null <- expected value
+					}])
+					pos: #pos
+				}])
+				pos: #pos
+			}, {
+				expr: EReturn({
+					expr: EConst(CIdent(object))
+					pos: #pos
+				})
+				pos: #pos
+			}])
+			pos: #pos
+		}
+		params: null
+		ret: TPath({
+			name: Label
+			pack: [feathers, controls]
+			params: null
+			sub: null
+		})
+	})
+	meta: [{
+		name: :noCompletion
+		params: null
+		pos: #pos
+	}]
+	name: createMXHXObject_1
+	pos: #pos
+}]
+line 398: expected value
+line 399: expected value

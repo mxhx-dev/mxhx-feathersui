@@ -1,0 +1,15 @@
+{
+  "name": "mxhx-feathersui",
+  "url": "https://feathersui.com/",
+  "license": "MIT",
+  "tags": ["feathersui", "xml", "mxhx", "gui"],
+  "description": "Add support for MXHX declarative XML components to Feathers UI",
+  "version": "1.0.0-alpha.1",
+  "classPath": "src",
+  "dependencies": {
+    "feathersui": "",
+    "mxhx-component": ""
+  },
+  "contributors": ["bowlerhat"],
+  "releasenote": "Initial alpha release"
+}

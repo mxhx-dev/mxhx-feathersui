@@ -1,0 +1,12 @@
+*.hxproj
+
+.vscode/
+*.code-workspace
+
+.idea/
+*.iml
+
+bin/
+
+.DS_Store
+Thumbs.db

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<f:Application xmlns:mx="https://ns.mxhx.dev/2024/mxhx"
+	xmlns:f="https://ns.feathersui.com/mxhx">
+	<f:layout>
+		<f:AnchorLayout/>
+	</f:layout>
+
+	<f:LayoutGroup id="header" height="60.0">
+		<f:layoutData>
+			<f:AnchorLayoutData top="0.0" left="0.0" right="0.0"/>
+		</f:layoutData>
+		<f:backgroundSkin>
+			<f:RectangleSkin>
+				<f:fill>
+					<f:FillStyle.SolidColor color="0x333333"/>
+				</f:fill>
+			</f:RectangleSkin>
+		</f:backgroundSkin>
+	</f:LayoutGroup>
+
+	<f:LayoutGroup id="footer" height="60.0">
+		<f:layoutData>
+			<f:AnchorLayoutData bottom="0.0" left="0.0" right="0.0"/>
+		</f:layoutData>
+		<f:backgroundSkin>
+			<f:RectangleSkin>
+				<f:fill>
+					<f:FillStyle.SolidColor color="0x666666"/>
+				</f:fill>
+			</f:RectangleSkin>
+		</f:backgroundSkin>
+	</f:LayoutGroup>
+
+	<f:LayoutGroup id="leftColumn" width="100.0">
+		<f:layoutData>
+			<f:AnchorLayoutData left="0.0">
+				<f:top>
+					<f:Anchor value="0.0" relativeTo="{header}"/>
+				</f:top>
+				<f:bottom>
+					<f:Anchor value="0.0" relativeTo="{footer}"/>
+				</f:bottom>
+			</f:AnchorLayoutData>
+		</f:layoutData>
+		<f:backgroundSkin>
+			<f:RectangleSkin>
+				<f:fill>
+					<f:FillStyle.SolidColor color="0xcccccc"/>
+				</f:fill>
+			</f:RectangleSkin>
+		</f:backgroundSkin>
+	</f:LayoutGroup>
+
+	<f:LayoutGroup id="rightColumn" width="100.0">
+		<f:layoutData>
+			<f:AnchorLayoutData right="0.0">
+				<f:top>
+					<f:Anchor value="0.0" relativeTo="{header}"/>
+				</f:top>
+				<f:bottom>
+					<f:Anchor value="0.0" relativeTo="{footer}"/>
+				</f:bottom>
+			</f:AnchorLayoutData>
+		</f:layoutData>
+		<f:backgroundSkin>
+			<f:RectangleSkin>
+				<f:fill>
+					<f:FillStyle.SolidColor color="0x999999"/>
+				</f:fill>
+			</f:RectangleSkin>
+		</f:backgroundSkin>
+	</f:LayoutGroup>
+
+	<f:LayoutGroup id="centerColumn" width="100.0">
+		<f:layoutData>
+			<f:AnchorLayoutData>
+				<f:top>
+					<f:Anchor value="0.0" relativeTo="{header}"/>
+				</f:top>
+				<f:bottom>
+					<f:Anchor value="0.0" relativeTo="{footer}"/>
+				</f:bottom>
+				<f:left>
+					<f:Anchor value="0.0" relativeTo="{leftColumn}"/>
+				</f:left>
+				<f:right>
+					<f:Anchor value="0.0" relativeTo="{rightColumn}"/>
+				</f:right>
+			</f:AnchorLayoutData>
+		</f:layoutData>
+		<f:backgroundSkin>
+			<f:RectangleSkin>
+				<f:fill>
+					<f:FillStyle.SolidColor color="0xffffff"/>
+				</f:fill>
+			</f:RectangleSkin>
+		</f:backgroundSkin>
+	</f:LayoutGroup>
+
+</f:Application>

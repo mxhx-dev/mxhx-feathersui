@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<f:Application xmlns:mx="https://ns.mxhx.dev/2024/basic"
+	xmlns:f="https://ns.feathersui.com/mxhx">
+	<f:layout>
+		<f:AnchorLayout/>
+	</f:layout>
+	<f:Button id="button" text="Click Me">
+		<f:layoutData>
+			<f:AnchorLayoutData horizontalCenter="0" verticalCenter="0"/>
+		</f:layoutData>
+	</f:Button>
+</f:Application>

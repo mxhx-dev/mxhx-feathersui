@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<f:Application xmlns:mx="https://ns.mxhx.dev/2024/mxhx"
+	xmlns:f="https://ns.feathersui.com/mxhx">
+	<f:layout>
+		<f:VerticalLayout gap="4.0"/>
+	</f:layout>
+
+	<f:LayoutGroup>
+		<f:layoutData>
+			<f:VerticalLayoutData percentWidth="100.0" percentHeight="20.0"/>
+		</f:layoutData>
+		<f:layout>
+			<f:HorizontalLayout gap="4.0" verticalAlign="MIDDLE"/>
+		</f:layout>
+		<f:Label id="inputDisplay"
+			variant="{CalculatorTheme.VARIANT_INPUT_DISPLAY_LABEL}"
+			text="{Std.string(this.currentNumber)}">
+			<f:layoutData>
+				<f:HorizontalLayoutData percentWidth="100.0"/>
+			</f:layoutData>
+		</f:Label>
+	</f:LayoutGroup>
+
+	<!-- button row 1 -->
+	<f:LayoutGroup>
+		<f:layoutData>
+			<f:VerticalLayoutData percentWidth="100.0" percentHeight="20.0"/>
+		</f:layoutData>
+		<f:layout>
+			<f:HorizontalLayout gap="4.0" verticalAlign="MIDDLE"/>
+		</f:layout>
+
+		<f:Button text="7" trigger="insertNumber(7)">
+			<f:layoutData>
+				<f:HorizontalLayoutData percentWidth="25.0" percentHeight="100.0"/>
+			</f:layoutData>
+		</f:Button>
+
+		<f:Button text="8" trigger="insertNumber(8)">
+			<f:layoutData>
+				<f:HorizontalLayoutData percentWidth="25.0" percentHeight="100.0"/>
+			</f:layoutData>
+		</f:Button>
+
+		<f:Button text="9" trigger="insertNumber(9)">
+			<f:layoutData>
+				<f:HorizontalLayoutData percentWidth="25.0" percentHeight="100.0"/>
+			</f:layoutData>
+		</f:Button>
+
+		<!-- not all fonts support the ÷ symbol -->
+		<f:Button id="divideButton"
+			variant="{CalculatorTheme.VARIANT_OPERATION_BUTTON}"
+			text="/" toolTip="Divide (or press /)"
+			trigger="divide()">
+			<f:layoutData>
+				<f:HorizontalLayoutData percentWidth="25.0" percentHeight="100.0"/>
+			</f:layoutData>
+		</f:Button>
+	</f:LayoutGroup>
+
+	<!-- button row 2 -->
+	<f:LayoutGroup>
+		<f:layoutData>
+			<f:VerticalLayoutData percentWidth="100.0" percentHeight="20.0"/>
+		</f:layoutData>
+		<f:layout>
+			<f:HorizontalLayout gap="4.0" verticalAlign="MIDDLE"/>
+		</f:layout>
+
+		<f:Button text="4" trigger="insertNumber(4)">
+			<f:layoutData>
+				<f:HorizontalLayoutData percentWidth="25.0" percentHeight="100.0"/>
+			</f:layoutData>
+		</f:Button>
+
+		<f:Button text="5" trigger="insertNumber(5)">
+			<f:layoutData>
+				<f:HorizontalLayoutData percentWidth="25.0" percentHeight="100.0"/>
+			</f:layoutData>
+		</f:Button>
+
+		<f:Button text="6" trigger="insertNumber(6)">
+			<f:layoutData>
+				<f:HorizontalLayoutData percentWidth="25.0" percentHeight="100.0"/>
+			</f:layoutData>
+		</f:Button>
+
+		<!-- not all fonts support the × symbol -->
+		<f:Button id="multiplyButton"
+			variant="{CalculatorTheme.VARIANT_OPERATION_BUTTON}"
+			text="x" toolTip="Multiply (or press *)"
+			trigger="multiply()">
+			<f:layoutData>
+				<f:HorizontalLayoutData percentWidth="25.0" percentHeight="100.0"/>
+			</f:layoutData>
+		</f:Button>
+	</f:LayoutGroup>
+
+	<!-- button row 3 -->
+	<f:LayoutGroup>
+		<f:layoutData>
+			<f:VerticalLayoutData percentWidth="100.0" percentHeight="20.0"/>
+		</f:layoutData>
+		<f:layout>
+			<f:HorizontalLayout gap="4.0" verticalAlign="MIDDLE"/>
+		</f:layout>
+
+		<f:Button text="1" trigger="insertNumber(1)">
+			<f:layoutData>
+				<f:HorizontalLayoutData percentWidth="25.0" percentHeight="100.0"/>
+			</f:layoutData>
+		</f:Button>
+
+		<f:Button text="2" trigger="insertNumber(2)">
+			<f:layoutData>
+				<f:HorizontalLayoutData percentWidth="25.0" percentHeight="100.0"/>
+			</f:layoutData>
+		</f:Button>
+
+		<f:Button text="3" trigger="insertNumber(3)">
+			<f:layoutData>
+				<f:HorizontalLayoutData percentWidth="25.0" percentHeight="100.0"/>
+			</f:layoutData>
+		</f:Button>
+
+		<!-- not all fonts support the − symbol (which is not -) -->
+		<f:Button id="subtractButton"
+			variant="{CalculatorTheme.VARIANT_OPERATION_BUTTON}"
+			text="-" toolTip="Subtract (or press -)"
+			trigger="subtract()">
+			<f:layoutData>
+				<f:HorizontalLayoutData percentWidth="25.0" percentHeight="100.0"/>
+			</f:layoutData>
+		</f:Button>
+	</f:LayoutGroup>
+
+	<!-- button row 4 -->
+	<f:LayoutGroup>
+		<f:layoutData>
+			<f:VerticalLayoutData percentWidth="100.0" percentHeight="20.0"/>
+		</f:layoutData>
+		<f:layout>
+			<f:HorizontalLayout gap="4.0" verticalAlign="MIDDLE"/>
+		</f:layout>
+
+		<f:Button id="clearButton"
+			variant="{CalculatorTheme.VARIANT_OPERATION_BUTTON}"
+			text="C" toolTip="Clear (Esc)"
+			trigger="clear()">
+			<f:layoutData>
+				<f:HorizontalLayoutData percentWidth="25.0" percentHeight="100.0"/>
+			</f:layoutData>
+		</f:Button>
+
+		<f:Button text="0" trigger="insertNumber(0)">
+			<f:layoutData>
+				<f:HorizontalLayoutData percentWidth="25.0" percentHeight="100.0"/>
+			</f:layoutData>
+		</f:Button>
+
+		<f:Button id="equalsButton"
+			variant="{CalculatorTheme.VARIANT_OPERATION_BUTTON}"
+			text="=" toolTip="Equal (or press Enter/Return)"
+			trigger="equals()">
+			<f:layoutData>
+				<f:HorizontalLayoutData percentWidth="25.0" percentHeight="100.0"/>
+			</f:layoutData>
+		</f:Button>
+
+		<f:Button id="addButton"
+			variant="{CalculatorTheme.VARIANT_OPERATION_BUTTON}"
+			text="+" toolTip="Add (or press +)"
+			trigger="add()">
+			<f:layoutData>
+				<f:HorizontalLayoutData percentWidth="25.0" percentHeight="100.0"/>
+			</f:layoutData>
+		</f:Button>
+	</f:LayoutGroup>
+
+</f:Application>

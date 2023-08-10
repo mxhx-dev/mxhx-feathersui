@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<f:Application xmlns:mx="https://ns.mxhx.dev/2024/mxhx"
+	xmlns:f="https://ns.feathersui.com/mxhx"
+	xmlns:local="*">
+	<f:layout>
+		<f:AnchorLayout/>
+	</f:layout>
+	<f:ListView id="listView">
+		<f:layoutData>
+			<f:AnchorLayoutData top="0" right="0" bottom="0" left="0"/>
+		</f:layoutData>
+		<f:layout>
+			<f:TiledRowsListLayout/>
+		</f:layout>
+		<f:dataProvider>
+			<f:ArrayCollection>
+				<mx:Array>
+					<local:ListItem name="Haxe" icon="assets/img/haxe.png"/>
+					<local:ListItem name="Lime" icon="assets/img/lime.png"/>
+					<local:ListItem name="OpenFL" icon="assets/img/openfl.png"/>
+					<local:ListItem name="Feathers UI" icon="assets/img/feathersui.png"/>
+				</mx:Array>
+			</f:ArrayCollection>
+		</f:dataProvider>
+		<f:itemRendererRecycler>
+			<mx:Component>
+				<f:LayoutGroupItemRenderer>
+					<f:layout>
+						<f:VerticalLayout paddingTop="5" paddingRight="5" paddingBottom="5" paddingLeft="5"
+							gap="5" horizontalAlign="CENTER" verticalAlign="MIDDLE"/>
+					</f:layout>
+					<f:AssetLoader source="{data.icon}"/>
+					<f:Label text="{data.name}"/>
+				</f:LayoutGroupItemRenderer>
+			</mx:Component>
+		</f:itemRendererRecycler>
+	</f:ListView>
+</f:Application>

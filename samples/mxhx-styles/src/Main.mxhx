@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<f:Application xmlns:mx="https://ns.mxhx.dev/2024/basic"
+	xmlns:f="https://ns.feathersui.com/mxhx">
+	<f:layout>
+		<f:VerticalLayout paddingTop="10.0" paddingRight="10.0"
+			paddingBottom="10.0" paddingLeft="10.0" gap="20.0"/>
+	</f:layout>
+	<f:Label text="Custom Styles in MXHX">
+		<f:textFormat>
+			<f:TextFormat font="_sans" size="20" italic="true" bold="true" color="0xff0000"/>
+		</f:textFormat>
+	</f:Label>
+	<f:Button text="Click Me">
+		<f:textFormat>
+			<f:TextFormat font="_sans" size="14" bold="true" color="0x3c3c3c"/>
+		</f:textFormat>
+		<f:backgroundSkin>
+			<f:RectangleSkin cornerRadius="4.0">
+				<f:fill>
+					<f:FillStyle.Gradient type="LINEAR">
+						<f:colors>
+							<mx:Int>0xc3c3c3</mx:Int>
+							<mx:Int>0xa3a3a3</mx:Int>
+						</f:colors>
+						<f:alphas>
+							<mx:Int>1.0</mx:Int>
+							<mx:Int>1.0</mx:Int>
+						</f:alphas>
+						<f:ratios>
+							<mx:Int>0x00</mx:Int>
+							<mx:Int>0xff</mx:Int>
+						</f:ratios>
+						<f:matrix>
+							<f:GradientBoxTransform.RotateDegrees rotation="90.0"/>
+						</f:matrix>
+					</f:FillStyle.Gradient>
+				</f:fill>
+				<f:border>
+					<f:LineStyle.SolidColor color="0x1d1d1d" thickness="2"/>
+				</f:border>
+			</f:RectangleSkin>
+		</f:backgroundSkin>
+	</f:Button>
+</f:Application>
