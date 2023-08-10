@@ -2,7 +2,7 @@
 
 ## Minimum Requirements
 
-- Haxe 4.0
+- Haxe 4.2
 - Feathers UI 1.3
 
 ## Installation
