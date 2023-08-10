@@ -8,7 +8,8 @@
   "classPath": "src",
   "dependencies": {
     "feathersui": "",
-    "mxhx-component": ""
+    "mxhx-component": "git:https://github.com/mxhx-dev/mxhx-component.git",
+    "feathersui-binding": "git:https://github.com/feathersui/feathersui-binding.git"
   },
   "contributors": ["bowlerhat"],
   "releasenote": "Initial alpha release"
