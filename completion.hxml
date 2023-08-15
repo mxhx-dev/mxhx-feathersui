@@ -1,3 +1,4 @@
 -cp src
 -lib feathersui
 -lib mxhx-component
+-lib feathersui-binding
