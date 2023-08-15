@@ -50,6 +50,18 @@ class MXHXMacro {
 	}
 
 	private static function createAddEventListenerExpression(dispatcherExpr:Expr, eventName:String, listenerExpr:Expr):Expr {
+		switch (listenerExpr.expr) {
+			case ECall(e, params):
+				if (params.length == 1) {
+					var param = params[0];
+					switch (param.expr) {
+						case EConst(CIdent("event")):
+							return macro $dispatcherExpr.addEventListener($v{eventName}, $e);
+						default:
+					}
+				}
+			default:
+		}
 		return macro $dispatcherExpr.addEventListener($v{eventName}, event -> $listenerExpr);
 	}
 }
