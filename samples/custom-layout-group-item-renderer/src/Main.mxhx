@@ -29,7 +29,7 @@
 						<f:VerticalLayout paddingTop="5" paddingRight="5" paddingBottom="5" paddingLeft="5"
 							gap="5" horizontalAlign="CENTER" verticalAlign="MIDDLE"/>
 					</f:layout>
-					<f:AssetLoader source="{data.icon}"/>
+					<f:AssetLoader source="{data.icon}" width="75.0" height="75.0"/>
 					<f:Label text="{data.name}"/>
 				</f:LayoutGroupItemRenderer>
 			</mx:Component>
