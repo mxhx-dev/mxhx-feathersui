@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <include>
 	<haxelib name="feathersui"/>
-	<haxelib name="feathersui-binding"/>
+	<haxelib name="bindable"/>
 	<haxelib name="mxhx-component"/>
 	<haxeflag name="--macro" value="feathers.macros.MXHXMacro.initialize()"/>
 </include>

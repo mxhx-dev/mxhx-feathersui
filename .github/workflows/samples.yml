@@ -20,7 +20,7 @@ jobs:
           haxelib install openfl 9.2.0 --quiet
           haxelib install actuate --quiet
           haxelib git feathersui https://github.com/feathersui/feathersui-openfl.git --quiet
-          haxelib git feathersui-binding https://github.com/feathersui/feathersui-binding.git --quiet
+          haxelib git bindable https://github.com/mxhx-dev/bindable.git --quiet
           haxelib git mxhx-parser https://github.com/mxhx-dev/mxhx-parser.git --quiet
           haxelib git mxhx-component https://github.com/mxhx-dev/mxhx-component.git --quiet
           haxelib dev mxhx-feathersui $GITHUB_WORKSPACE
@@ -91,7 +91,7 @@ jobs:
           haxelib install openfl 9.2.0 --quiet
           haxelib install actuate --quiet
           haxelib git feathersui https://github.com/feathersui/feathersui-openfl.git --quiet
-          haxelib git feathersui-binding https://github.com/feathersui/feathersui-binding.git --quiet
+          haxelib git bindable https://github.com/mxhx-dev/bindable.git --quiet
           haxelib git mxhx-parser https://github.com/mxhx-dev/mxhx-parser.git --quiet
           haxelib git mxhx-component https://github.com/mxhx-dev/mxhx-component.git --quiet
           haxelib dev mxhx-feathersui ${{ github.workspace }}

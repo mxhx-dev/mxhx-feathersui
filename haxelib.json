@@ -9,7 +9,7 @@
   "dependencies": {
     "feathersui": "",
     "mxhx-component": "git:https://github.com/mxhx-dev/mxhx-component.git",
-    "feathersui-binding": "git:https://github.com/feathersui/feathersui-binding.git"
+    "bindable": "git:https://github.com/mxhx-dev/bindable.git"
   },
   "contributors": ["bowlerhat"],
   "releasenote": "Initial alpha release"
