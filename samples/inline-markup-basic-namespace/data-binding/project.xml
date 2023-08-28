@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	<meta title="Data Binding (MXHX)" package="com.feathersui.samples.mxhx.basic.inline-markup.DataBinding" version="1.0.0" company="Bowler Hat LLC"/>
+	<meta title="Data Binding (MXHX) — Feathers UI Samples" if="html5"/>
+	<app main="Main" file="DataBinding"/>
+
+	<window allow-high-dpi="true"/>
+	<window fps="60"/>
+	<window fps="0" if="html5"/>
+	<window background="#F8F8F8"/>
+
+	<source path="src"/>
+
+	<haxelib name="mxhx-feathersui"/>
+
+	<haxedef name="feathersui_theme_manage_stage_color"/>
+	<haxedef name="mxhx_disable_experimental_warning"/>
+
+	<icon path="assets/icons/feathersui-icon.svg"/>
+</project>

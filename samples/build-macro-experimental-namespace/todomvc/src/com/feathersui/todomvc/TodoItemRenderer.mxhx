@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<f:ItemRenderer
+	xmlns:mx="https://ns.mxhx.dev/2024/mxhx"
+	xmlns:f="https://ns.feathersui.com/mxhx"
+	text="{data.text}">
+
+	<mx:Declarations>
+		<f:TextInput id="editingTextInput" visible="false"/>
+
+		<f:Button id="deleteButton" variant="{CHILD_VARIANT_DELETE_BUTTON}"
+			tabEnabled="false"/>
+	</mx:Declarations>
+
+	<f:icon>
+		<f:Check id="completedCheck" selected="{data.completed}"/>
+	</f:icon>
+
+</f:ItemRenderer>

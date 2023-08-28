@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	<meta title="TodoMVC (MXHX)" package="com.feathersui.samples.mxhx.TodoMVC" version="1.0.0" company="Bowler Hat LLC"/>
+	<meta title="TodoMVC (MXHX) — Feathers UI Samples" if="html5"/>
+	<app main="com.feathersui.todomvc.Main" file="TodoMVC"/>
+
+	<window allow-high-dpi="true"/>
+	<window fps="60"/>
+	<window fps="0" if="html5"/>
+	
+	<source path="src"/>
+	
+	<haxelib name="mxhx-feathersui"/>
+
+	<haxedef name="mxhx_disable_experimental_warning"/>
+
+	<icon path="assets/icons/feathersui-icon.svg"/>
+</project>

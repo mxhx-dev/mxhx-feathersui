@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<f:LayoutGroup xmlns:mx="https://ns.mxhx.dev/2024/mxhx"
+	xmlns:f="https://ns.feathersui.com/mxhx">
+	<f:layout>
+		<f:VerticalLayout horizontalAlign="CENTER" verticalAlign="MIDDLE"/>
+	</f:layout>
+	<f:HSlider id="slider" value="0" minimum="0" maximum="10" snapInterval="1"/>
+	<f:Label text="{Std.string(slider.value)}"/>
+</f:LayoutGroup>

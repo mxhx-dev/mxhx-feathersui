@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<f:Application
+	xmlns:mx="https://ns.mxhx.dev/2024/mxhx"
+	xmlns:f="https://ns.feathersui.com/mxhx"
+	xmlns:vo="com.feathersui.todomvc.vo.*"
+	xmlns="com.feathersui.todomvc.*">
+
+	<mx:Declarations>
+		<f:LayoutGroup id="bottomBar" variant="{CHILD_VARIANT_BOTTOM_BAR}">
+			<f:Label id="incompleteLabel"/>
+			<f:TabBar id="filterTabs" itemToText="filterItemToText">
+				<f:ArrayCollection>
+					<vo:FilterItem text="All"/>
+					<vo:FilterItem text="Active" filterFunction="activeFilterFunction"/>
+					<vo:FilterItem text="Completed" filterFunction="completedFilterFunction"/>
+				</f:ArrayCollection>
+			</f:TabBar>
+			<f:Button id="clearButton" text="Clear Completed" visible="false"/>
+		</f:LayoutGroup>
+	</mx:Declarations>
+
+	<f:layout>
+		<f:AnchorLayout/>
+	</f:layout>
+
+	<f:ScrollContainer id="mainContainer">
+		<f:layoutData>
+			<f:AnchorLayoutData top="0.0" right="0.0" bottom="0.0" left="0.0"/>
+		</f:layoutData>
+		<f:layout>
+			<f:VerticalLayout horizontalAlign="CENTER" justifyResetEnabled="true"
+				gap="10.0" paddingTop="10.0" paddingRight="10.0" paddingBottom="10.0" paddingLeft="10.0"/>
+		</f:layout>
+
+		<f:Label variant="{CHILD_VARIANT_TITLE_LABEL}" text="todos"/>
+		<f:Panel id="contentContainer" width="550.0">
+			<f:layout>
+				<f:VerticalLayout horizontalAlign="JUSTIFY"/>
+			</f:layout>
+			<f:header>
+				<f:LayoutGroup>
+					<f:layout>
+						<f:HorizontalLayout gap="5.0" verticalAlign="MIDDLE"/>
+					</f:layout>
+
+					<f:TextInput id="newTodoInput"
+						variant="{CHILD_VARIANT_NEW_TODO_TEXT_INPUT}"
+						prompt="What needs to be done?">
+						<f:layoutData>
+							<f:HorizontalLayoutData percentWidth="100.0"/>
+						</f:layoutData>
+						<f:leftView>
+							<f:ToggleButton id="selectAllToggle"
+								variant="{CHILD_VARIANT_SELECT_ALL_TOGGLE}"
+								visible="false"/>
+						</f:leftView>
+					</f:TextInput>
+				</f:LayoutGroup>
+			</f:header>
+			<f:ListView id="todosListView"
+				selectable="false"
+				visible="false"
+				itemToText="todoItemToText">
+				<f:layout>
+					<f:VerticalListFixedRowLayout/>
+				</f:layout>
+			</f:ListView>
+		</f:Panel>
+	
+		<f:Label variant="{CHILD_VARIANT_FOOTER_TEXT}">
+			<f:htmlText><![CDATA[<p>Created with <a href="https://feathersui.com/"><u>Feathers UI</u></a> and <a href="https://mxhx.dev/"><u>MXHX</u></a></p><p>Inspired by <a href="https://todomvc.com/"><u>TodoMVC</u></a></p>]]></f:htmlText>
+		</f:Label>
+	</f:ScrollContainer>
+
+</f:Application>

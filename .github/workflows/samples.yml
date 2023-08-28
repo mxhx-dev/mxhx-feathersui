@@ -24,50 +24,50 @@ jobs:
           haxelib git mxhx-parser https://github.com/mxhx-dev/mxhx-parser.git --quiet
           haxelib git mxhx-component https://github.com/mxhx-dev/mxhx-component.git --quiet
           haxelib dev mxhx-feathersui $GITHUB_WORKSPACE
-      - name: Build samples/anchor-layout-three-column-header-and-footer
-        working-directory: samples/anchor-layout-three-column-header-and-footer
+      - name: Build samples/build-macro-experimental-namespace/anchor-layout-three-column-header-and-footer
+        working-directory: samples/build-macro-experimental-namespace/anchor-layout-three-column-header-and-footer
         run: |
           haxelib run openfl build neko
           haxelib run openfl build html5
           haxelib run openfl build flash
           haxelib run openfl build hl
-      - name: Build samples/calculator
-        working-directory: samples/calculator
+      - name: Build samples/build-macro-experimental-namespace/calculator
+        working-directory: samples/build-macro-experimental-namespace/calculator
         run: |
           haxelib run openfl build neko
           haxelib run openfl build html5
           haxelib run openfl build flash
           haxelib run openfl build hl
-      - name: Build samples/custom-layout-group-item-renderer
-        working-directory: samples/custom-layout-group-item-renderer
+      - name: Build samples/build-macro-experimental-namespace/custom-layout-group-item-renderer
+        working-directory: samples/build-macro-experimental-namespace/custom-layout-group-item-renderer
         run: |
           haxelib run openfl build neko
           haxelib run openfl build html5
           haxelib run openfl build flash
           haxelib run openfl build hl
-      - name: Build samples/data-binding
-        working-directory: samples/data-binding
+      - name: Build samples/build-macro-experimental-namespace/data-binding
+        working-directory: samples/build-macro-experimental-namespace/data-binding
         run: |
           haxelib run openfl build neko
           haxelib run openfl build html5
           haxelib run openfl build flash
           haxelib run openfl build hl
-      - name: Build samples/hello-world
-        working-directory: samples/hello-world
+      - name: Build samples/build-macro-experimental-namespace/hello-world
+        working-directory: samples/build-macro-experimental-namespace/hello-world
         run: |
           haxelib run openfl build neko
           haxelib run openfl build html5
           haxelib run openfl build flash
           haxelib run openfl build hl
-      - name: Build samples/horizontal-layout-percentage-sizing
-        working-directory: samples/horizontal-layout-percentage-sizing
+      - name: Build samples/build-macro-experimental-namespace/horizontal-layout-percentage-sizing
+        working-directory: samples/build-macro-experimental-namespace/horizontal-layout-percentage-sizing
         run: |
           haxelib run openfl build neko
           haxelib run openfl build html5
           haxelib run openfl build flash
           haxelib run openfl build hl
-      - name: Build samples/mxhx-styles
-        working-directory: samples/mxhx-styles
+      - name: Build samples/build-macro-experimental-namespace/mxhx-styles
+        working-directory: samples/build-macro-experimental-namespace/mxhx-styles
         run: |
           haxelib run openfl build neko
           haxelib run openfl build html5
@@ -96,31 +96,31 @@ jobs:
           haxelib git mxhx-component https://github.com/mxhx-dev/mxhx-component.git --quiet
           haxelib dev mxhx-feathersui ${{ github.workspace }}
           haxelib run lime config AIR_SDK ${{ env.AIR_HOME }}s
-      - name: Build samples/anchor-layout-three-column-header-and-footer
-        working-directory: samples/anchor-layout-three-column-header-and-footer
+      - name: Build samples/build-macro-experimental-namespace/anchor-layout-three-column-header-and-footer
+        working-directory: samples/build-macro-experimental-namespace/anchor-layout-three-column-header-and-footer
         run: |
           haxelib run openfl build air
-      - name: Build samples/calculator
-        working-directory: samples/calculator
+      - name: Build samples/build-macro-experimental-namespace/calculator
+        working-directory: samples/build-macro-experimental-namespace/calculator
         run: |
           haxelib run openfl build air
-      - name: Build samples/custom-layout-group-item-renderer
-        working-directory: samples/custom-layout-group-item-renderer
+      - name: Build samples/build-macro-experimental-namespace/custom-layout-group-item-renderer
+        working-directory: samples/build-macro-experimental-namespace/custom-layout-group-item-renderer
         run: |
           haxelib run openfl build air
-      - name: Build samples/data-binding
-        working-directory: samples/data-binding
+      - name: Build samples/build-macro-experimental-namespace/data-binding
+        working-directory: samples/build-macro-experimental-namespace/data-binding
         run: |
           haxelib run openfl build air
-      - name: Build samples/hello-world
-        working-directory: samples/hello-world
+      - name: Build samples/build-macro-experimental-namespace/hello-world
+        working-directory: samples/build-macro-experimental-namespace/hello-world
         run: |
           haxelib run openfl build air
-      - name: Build samples/horizontal-layout-percentage-sizing
-        working-directory: samples/horizontal-layout-percentage-sizing
+      - name: Build samples/build-macro-experimental-namespace/horizontal-layout-percentage-sizing
+        working-directory: samples/build-macro-experimental-namespace/horizontal-layout-percentage-sizing
         run: |
           haxelib run openfl build air
-      - name: Build samples/mxhx-styles
-        working-directory: samples/mxhx-styles
+      - name: Build samples/build-macro-experimental-namespace/mxhx-styles
+        working-directory: samples/build-macro-experimental-namespace/mxhx-styles
         run: |
           haxelib run openfl build air

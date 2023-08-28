@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<f:LayoutGroup xmlns:mx="https://ns.mxhx.dev/2024/mxhx"
+	xmlns:f="https://ns.feathersui.com/mxhx">
+	<f:layout>
+		<f:AnchorLayout/>
+	</f:layout>
+	<!-- use outerDocument to call methods on the containing Haxe class -->
+	<f:Button id="button" text="Click Me" click="outerDocument.button_triggerHandler(event)">
+		<f:layoutData>
+			<f:AnchorLayoutData horizontalCenter="0" verticalCenter="0"/>
+		</f:layoutData>
+	</f:Button>
+</f:LayoutGroup>
