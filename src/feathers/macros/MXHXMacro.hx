@@ -42,7 +42,7 @@ class MXHXMacro {
 	}
 
 	private static function createDataBindingExpression(sourceExpr:Expr, destExpr:Expr, documentExpr:Expr):Expr {
-		return macro feathers.binding.DataBinding.bind($sourceExpr, $destExpr, $documentExpr);
+		return macro mxhx.bindable.DataBinding.bind($sourceExpr, $destExpr, $documentExpr);
 	}
 
 	private static function createDispatchEventExpression(dispatcherExpr:Expr, eventName:String):Expr {
