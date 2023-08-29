@@ -10,7 +10,7 @@ import feathers.controls.TabBar;
 import feathers.controls.TextInput;
 import feathers.controls.ToggleButton;
 import feathers.controls.ToggleButtonState;
-import feathers.controls.dataRenderers.ItemRenderer;
+import feathers.controls.dataRenderers.LayoutGroupItemRenderer;
 import feathers.layout.HorizontalLayout;
 import feathers.layout.VerticalListLayout;
 import feathers.skins.CircleSkin;
@@ -26,20 +26,21 @@ class TodoTheme extends ClassVariantTheme {
 	public function new() {
 		super();
 
-		styleProvider.setStyleFunction(TextInput, Main.CHILD_VARIANT_NEW_TODO_TEXT_INPUT, setNewTodoTextInputStyles);
-		styleProvider.setStyleFunction(Label, null, setLabelStyles);
-		styleProvider.setStyleFunction(Label, Main.CHILD_VARIANT_TITLE_LABEL, setTitleLabelStyles);
-		styleProvider.setStyleFunction(ToggleButton, Main.CHILD_VARIANT_SELECT_ALL_TOGGLE, setSelectAllToggleButtonStyles);
 		styleProvider.setStyleFunction(Button, null, setButtonStyles);
 		styleProvider.setStyleFunction(Button, TodoItemRenderer.CHILD_VARIANT_DELETE_BUTTON, setTodoItemRendererDeleteButtonStyles);
-		styleProvider.setStyleFunction(ListView, null, setListViewStyles);
 		styleProvider.setStyleFunction(Check, null, setCheckStyles);
-		styleProvider.setStyleFunction(ItemRenderer, null, setItemRendererStyles);
-		styleProvider.setStyleFunction(LayoutGroup, Main.CHILD_VARIANT_BOTTOM_BAR, setBottomBarStyles);
+		styleProvider.setStyleFunction(Label, null, setLabelStyles);
+		styleProvider.setStyleFunction(Label, Main.CHILD_VARIANT_TITLE_LABEL, setTitleLabelStyles);
 		styleProvider.setStyleFunction(Label, Main.CHILD_VARIANT_FOOTER_TEXT, setFooterTextStyles);
-		styleProvider.setStyleFunction(TabBar, null, setTabBarStyles);
-		styleProvider.setStyleFunction(ToggleButton, TabBar.CHILD_VARIANT_TAB, setTabStyles);
+		styleProvider.setStyleFunction(Label, TodoItemRenderer.CHILD_VARIANT_LABEL, setTodoItemRendererLabelStyles);
+		styleProvider.setStyleFunction(LayoutGroup, Main.CHILD_VARIANT_BOTTOM_BAR, setBottomBarStyles);
+		styleProvider.setStyleFunction(LayoutGroupItemRenderer, null, setLayoutGroupItemRendererStyles);
+		styleProvider.setStyleFunction(ListView, null, setListViewStyles);
 		styleProvider.setStyleFunction(Panel, null, setPanelStyles);
+		styleProvider.setStyleFunction(TabBar, null, setTabBarStyles);
+		styleProvider.setStyleFunction(TextInput, Main.CHILD_VARIANT_NEW_TODO_TEXT_INPUT, setNewTodoTextInputStyles);
+		styleProvider.setStyleFunction(ToggleButton, Main.CHILD_VARIANT_SELECT_ALL_TOGGLE, setSelectAllToggleButtonStyles);
+		styleProvider.setStyleFunction(ToggleButton, TabBar.CHILD_VARIANT_TAB, setTabStyles);
 	}
 
 	private function getTitleFormat():TextFormat {
@@ -149,21 +150,15 @@ class TodoTheme extends ClassVariantTheme {
 		listView.layout = new VerticalListLayout();
 	}
 
-	private function setItemRendererStyles(itemRenderer:ItemRenderer):Void {
+	private function setLayoutGroupItemRendererStyles(itemRenderer:LayoutGroupItemRenderer):Void {
 		var backgroundSkin = new RectangleSkin();
 		backgroundSkin.fill = SolidColor(0xffffff, 0.0);
 		backgroundSkin.border = None;
 		itemRenderer.backgroundSkin = backgroundSkin;
+	}
 
-		itemRenderer.textFormat = getLargeTextFormat();
-		itemRenderer.selectedTextFormat = getLargeSelectedTextFormat();
-
-		itemRenderer.horizontalAlign = LEFT;
-		itemRenderer.gap = 20.0;
-		itemRenderer.paddingTop = 6.0;
-		itemRenderer.paddingRight = 10.0;
-		itemRenderer.paddingBottom = 6.0;
-		itemRenderer.paddingLeft = 10.0;
+	private function setTodoItemRendererLabelStyles(label:Label):Void {
+		label.textFormat = getLargeTextFormat();
 	}
 
 	private function setCheckStyles(check:Check):Void {

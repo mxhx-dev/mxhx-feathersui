@@ -3,7 +3,7 @@ package com.feathersui.todomvc;
 import feathers.controls.Button;
 import feathers.controls.Check;
 import feathers.controls.TextInput;
-import feathers.controls.dataRenderers.ItemRenderer;
+import feathers.controls.dataRenderers.LayoutGroupItemRenderer;
 import feathers.events.TriggerEvent;
 import openfl.events.Event;
 import openfl.events.FocusEvent;
@@ -15,11 +15,12 @@ import com.feathersui.todomvc.vo.TodoItem;
 @:event("completedChange")
 @:event("deleteItem")
 @:build(mxhx.macros.MXHXComponent.build())
-class TodoItemRenderer extends ItemRenderer {
+class TodoItemRenderer extends LayoutGroupItemRenderer {
 	public static final EVENT_TEXT_CHANGE = "textChange";
 	public static final EVENT_COMPLETED_CHANGE = "completedChange";
 	public static final EVENT_DELETE_ITEM = "deleteItem";
 	public static final CHILD_VARIANT_DELETE_BUTTON = "todoItemRenderer_deleteButton";
+	public static final CHILD_VARIANT_LABEL = "todoItemRenderer_label";
 
 	public function new() {
 		super();
@@ -41,25 +42,10 @@ class TodoItemRenderer extends ItemRenderer {
 		return todoItem.completed;
 	}
 
-	override private function initialize():Void {
-		super.initialize();
+	override private function update():Void {
+		super.update();
 
-		this.textField.doubleClickEnabled = true;
-		this.textField.addEventListener(MouseEvent.DOUBLE_CLICK, textField_doubleClickHandler);
-
-		this.completedCheck.addEventListener(Event.CHANGE, completedCheck_changeHandler);
-
-		this.deleteButton.addEventListener(TriggerEvent.TRIGGER, deleteButton_triggerHandler);
-
-		this.addChild(this.editingTextInput);
-		this.editingTextInput.addEventListener(FocusEvent.FOCUS_OUT, editingTextInput_focusOutHandler);
-		this.editingTextInput.addEventListener(KeyboardEvent.KEY_DOWN, editingTextInput_keyDownHandler);
-	}
-
-	override private function layoutChildren():Void {
-		super.layoutChildren();
-
-		this.editingTextInput.x = this.textField.x;
+		this.editingTextInput.x = this.label.x;
 		this.editingTextInput.y = 0.0;
 		this.editingTextInput.width = this.actualWidth - this.editingTextInput.x;
 		this.editingTextInput.height = this.actualHeight;
@@ -96,16 +82,20 @@ class TodoItemRenderer extends ItemRenderer {
 		if (this.editingTextInput.visible) {
 			return;
 		}
-		this.accessoryView = this.deleteButton;
+		this.deleteButton.visible = true;
+		this.deleteButton.includeInLayout = true;
 	}
 
 	private function todoItemRenderer_rollOutHandler(event:MouseEvent):Void {
-		this.accessoryView = null;
+		this.deleteButton.visible = false;
+		this.deleteButton.includeInLayout = false;
 	}
 
-	private function textField_doubleClickHandler(event:MouseEvent):Void {
-		this.accessoryView = null;
-		this.editingTextInput.text = this.text;
+	private function label_doubleClickHandler(event:MouseEvent):Void {
+		this.deleteButton.visible = false;
+		this.deleteButton.includeInLayout = false;
+
+		this.editingTextInput.text = this.data.text;
 		this.editingTextInput.visible = true;
 		this.focusManager.focus = this.editingTextInput;
 		this.editingTextInput.selectAll();

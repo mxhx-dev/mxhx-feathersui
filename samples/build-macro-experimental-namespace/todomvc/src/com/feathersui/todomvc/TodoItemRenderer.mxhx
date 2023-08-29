@@ -1,18 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<f:ItemRenderer
+<f:LayoutGroupItemRenderer
 	xmlns:mx="https://ns.mxhx.dev/2024/mxhx"
-	xmlns:f="https://ns.feathersui.com/mxhx"
-	text="{data.text}">
+	xmlns:f="https://ns.feathersui.com/mxhx">
 
-	<mx:Declarations>
-		<f:TextInput id="editingTextInput" visible="false"/>
+	<f:layout>
+		<f:HorizontalLayout gap="20.0" paddingTop="6.0" paddingRight="10.0" paddingBottom="6.0" paddingLeft="10.0"/>
+	</f:layout>
 
-		<f:Button id="deleteButton" variant="{CHILD_VARIANT_DELETE_BUTTON}"
-			tabEnabled="false"/>
-	</mx:Declarations>
+	<f:Check id="completedCheck"
+		selected="{data.completed}" change="completedCheck_changeHandler(event)"/>
+	<f:Label id="label" variant="{CHILD_VARIANT_LABEL}" text="{data.text}"
+		doubleClickEnabled="true" doubleClick="label_doubleClickHandler(event)">
+		<f:layoutData>
+			<f:HorizontalLayoutData percentWidth="100"/>
+		</f:layoutData>
+	</f:Label>
+	<f:Button id="deleteButton" variant="{CHILD_VARIANT_DELETE_BUTTON}"
+		tabEnabled="false" visible="false" includeInLayout="false"
+		trigger="deleteButton_triggerHandler(event)"/>
 
-	<f:icon>
-		<f:Check id="completedCheck" selected="{data.completed}"/>
-	</f:icon>
+	<f:TextInput id="editingTextInput" visible="false" includeInLayout="false"
+		focusOut="editingTextInput_focusOutHandler(event)"
+		keyDown="editingTextInput_keyDownHandler(event)"/>
 
-</f:ItemRenderer>
+</f:LayoutGroupItemRenderer>
