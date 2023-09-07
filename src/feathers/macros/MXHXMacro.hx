@@ -41,28 +41,21 @@ class MXHXMacro {
 		return Path.join([Path.directory(filePath), "..", "..", ".."]);
 	}
 
-	private static function createDataBindingExpression(sourceExpr:Expr, destExpr:Expr, documentExpr:Expr):Expr {
-		return macro mxhx.bindable.DataBinding.bind($sourceExpr, $destExpr, $documentExpr);
+	private static function createDataBindingExpression(sourceExpr:String, destExpr:String, documentExpr:String):String {
+		return 'mxhx.bindable.DataBinding.bind(${sourceExpr}, ${destExpr}, ${documentExpr})';
 	}
 
-	private static function createDispatchEventExpression(dispatcherExpr:Expr, eventName:String):Expr {
-		return macro $dispatcherExpr.dispatchEvent(new openfl.events.Event($v{eventName}));
+	private static function createDispatchEventExpression(dispatcherExpr:String, eventName:String):String {
+		return '${dispatcherExpr}.dispatchEvent(new openfl.events.Event("${eventName}"))';
 	}
 
-	private static function createAddEventListenerExpression(dispatcherExpr:Expr, eventName:String, listenerExpr:Expr):Expr {
-		switch (listenerExpr.expr) {
-			case ECall(e, params):
-				if (params.length == 1) {
-					var param = params[0];
-					switch (param.expr) {
-						case EConst(CIdent("event")):
-							return macro $dispatcherExpr.addEventListener($v{eventName}, $e);
-						default:
-					}
-				}
-			default:
+	private static function createAddEventListenerExpression(dispatcherExpr:String, eventName:String, listenerExpr:String):String {
+		listenerExpr = StringTools.trim(listenerExpr);
+		if (~/\w+(?:\.\w+)*\(event\)/.match(listenerExpr)) {
+			var modifiedListenerExpr = listenerExpr.substr(0, listenerExpr.length - 7);
+			return '${dispatcherExpr}.addEventListener("${eventName}", ${modifiedListenerExpr})';
 		}
-		return macro $dispatcherExpr.addEventListener($v{eventName}, event -> $listenerExpr);
+		return '${dispatcherExpr}.addEventListener("${eventName}", event -> ${listenerExpr})';
 	}
 }
 #end
