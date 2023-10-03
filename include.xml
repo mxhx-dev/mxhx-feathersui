@@ -4,4 +4,5 @@
 	<haxelib name="bindable"/>
 	<haxelib name="mxhx-component"/>
 	<haxeflag name="--macro" value="feathers.macros.MXHXMacro.initialize()"/>
+	<haxeflag name="--macro" value="mxhx.resolver.MXHXResolvers.registerManifestFile('https://ns.feathersui.com/mxhx', '${haxelib:mxhx-feathersui}/mxhx-manifest.xml')"/>
 </include>
