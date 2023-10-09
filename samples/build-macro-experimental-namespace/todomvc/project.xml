@@ -13,6 +13,11 @@
 	<haxelib name="mxhx-feathersui"/>
 
 	<haxedef name="mxhx_disable_experimental_warning"/>
+	<!--
+		needed for bindable haxelib on C++ target only. ensures that field
+		access on null results in an exception instead of a segmentation fault.
+	-->
+	<haxedef name="HXCPP_CHECK_POINTER" if="cpp"/>
 
 	<icon path="assets/icons/feathersui-icon.svg"/>
 </project>

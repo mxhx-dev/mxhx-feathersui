@@ -15,6 +15,11 @@
 
 	<haxedef name="feathersui_theme_manage_stage_color"/>
 	<haxedef name="mxhx_disable_experimental_warning"/>
+	<!--
+		needed for bindable haxelib on C++ target only. ensures that field
+		access on null results in an exception instead of a segmentation fault.
+	-->
+	<haxedef name="HXCPP_CHECK_POINTER" if="cpp"/>
 
 	<assets path="assets/img/haxe.png"/>
 	<assets path="assets/img/lime.png"/>
