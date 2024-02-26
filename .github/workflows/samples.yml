@@ -94,15 +94,15 @@ jobs:
           haxe-version: 4.3.3
       - name: Set up Haxelib dependencies
         run: |
-          haxelib install lime 8.0.0 --quiet
-          haxelib install openfl 9.2.0 --quiet
+          haxelib install lime --quiet
+          haxelib install openfl --quiet
           haxelib install actuate --quiet
           haxelib git feathersui https://github.com/feathersui/feathersui-openfl.git --quiet
           haxelib git bindable https://github.com/mxhx-dev/bindable.git --quiet
           haxelib git mxhx-component https://github.com/mxhx-dev/mxhx-component.git --quiet
           haxelib git mxhx-runtime-component https://github.com/mxhx-dev/mxhx-runtime-component.git --quiet
           haxelib dev mxhx-feathersui ${{ github.workspace }}
-          haxelib run lime config AIR_SDK ${{ env.AIR_HOME }}s
+          haxelib run lime config AIR_SDK ${{ env.AIR_HOME }}
       - name: Build samples/build-macro-experimental-namespace/anchor-layout-three-column-header-and-footer
         working-directory: samples/build-macro-experimental-namespace/anchor-layout-three-column-header-and-footer
         run: |
