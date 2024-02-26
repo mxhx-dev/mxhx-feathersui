@@ -24,3 +24,15 @@ After installing the library above, add it to your OpenFL _project.xml_ file:
 ```xml
 <haxelib name="mxhx-feathersui" />
 ```
+
+You will also need to add one of the following libraries (but probably not both):
+
+```xml
+<haxelib name="mxhx-component" />
+```
+
+or
+
+```xml
+<haxelib name="mxhx-runtime-component" />
+```
