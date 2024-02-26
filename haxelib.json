@@ -8,7 +8,7 @@
   "classPath": "src",
   "dependencies": {
     "feathersui": "",
-    "mxhx-component": "git:https://github.com/mxhx-dev/mxhx-component.git",
+    "mxhx-resolver": "git:https://github.com/mxhx-dev/mxhx-resolver.git",
     "bindable": "git:https://github.com/mxhx-dev/bindable.git"
   },
   "contributors": ["bowlerhat"],

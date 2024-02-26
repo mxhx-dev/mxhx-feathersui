@@ -21,8 +21,8 @@ jobs:
           haxelib install actuate --quiet
           haxelib git feathersui https://github.com/feathersui/feathersui-openfl.git --quiet
           haxelib git bindable https://github.com/mxhx-dev/bindable.git --quiet
-          haxelib git mxhx-parser https://github.com/mxhx-dev/mxhx-parser.git --quiet
           haxelib git mxhx-component https://github.com/mxhx-dev/mxhx-component.git --quiet
+          haxelib git mxhx-runtime-component https://github.com/mxhx-dev/mxhx-runtime-component.git --quiet
           haxelib dev mxhx-feathersui $GITHUB_WORKSPACE
       - name: Build samples/build-macro-experimental-namespace/anchor-layout-three-column-header-and-footer
         working-directory: samples/build-macro-experimental-namespace/anchor-layout-three-column-header-and-footer
@@ -73,6 +73,13 @@ jobs:
           haxelib run openfl build html5
           haxelib run openfl build flash
           haxelib run openfl build hl
+      - name: Build samples/runtime-basic-namespace/hello-world
+        working-directory: samples/runtime-basic-namespace/hello-world
+        run: |
+          haxelib run openfl build neko
+          haxelib run openfl build html5
+          haxelib run openfl build flash
+          haxelib run openfl build hl
 
   build-air:
     runs-on: windows-latest
@@ -92,8 +99,8 @@ jobs:
           haxelib install actuate --quiet
           haxelib git feathersui https://github.com/feathersui/feathersui-openfl.git --quiet
           haxelib git bindable https://github.com/mxhx-dev/bindable.git --quiet
-          haxelib git mxhx-parser https://github.com/mxhx-dev/mxhx-parser.git --quiet
           haxelib git mxhx-component https://github.com/mxhx-dev/mxhx-component.git --quiet
+          haxelib git mxhx-runtime-component https://github.com/mxhx-dev/mxhx-runtime-component.git --quiet
           haxelib dev mxhx-feathersui ${{ github.workspace }}
           haxelib run lime config AIR_SDK ${{ env.AIR_HOME }}s
       - name: Build samples/build-macro-experimental-namespace/anchor-layout-three-column-header-and-footer
@@ -122,5 +129,9 @@ jobs:
           haxelib run openfl build air
       - name: Build samples/build-macro-experimental-namespace/mxhx-styles
         working-directory: samples/build-macro-experimental-namespace/mxhx-styles
+        run: |
+          haxelib run openfl build air
+      - name: Build samples/runtime-basic-namespace/hello-world
+        working-directory: samples/runtime-basic-namespace/hello-world
         run: |
           haxelib run openfl build air

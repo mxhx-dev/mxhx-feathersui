@@ -11,6 +11,7 @@
 
 	<source path="src"/>
 
+	<haxelib name="mxhx-component"/>
 	<haxelib name="mxhx-feathersui"/>
 
 	<haxedef name="feathersui_theme_manage_stage_color"/>

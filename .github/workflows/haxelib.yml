@@ -1,0 +1,27 @@
+name: Haxelib
+
+on:
+  push:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/upload-artifact@v3
+        with:
+          name: mxhx-feathersui-haxelib
+          path: |
+            src/
+            haxelib.json
+            include.xml
+            mxhx-manifest.xml
+            README.md
+            LICENSE
+            NOTICE
+            CHANGELOG.md
+          if-no-files-found: error

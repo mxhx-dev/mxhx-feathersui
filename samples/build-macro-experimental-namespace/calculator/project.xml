@@ -10,6 +10,7 @@
 	
 	<source path="src"/>
 
+	<haxelib name="mxhx-component"/>
 	<haxelib name="mxhx-feathersui"/>
 
 	<haxedef name="mxhx_disable_experimental_warning"/>

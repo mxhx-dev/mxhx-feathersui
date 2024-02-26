@@ -1,5 +1,9 @@
 # MXHX for Feathers UI
 
+Registers [Feathers UI](https://feathersui.com/) components for use with MXHX.
+
+_Note:_ You will also need to install either [mxhx-component](https://github.com/mxhx-dev/mxhx-component) or [mxhx-runtime-component](https://github.com/mxhx-dev/mxhx-runtime-component), depending on whether you want to create MXHX components at compile-time or at run-time.
+
 ## Minimum Requirements
 
 - Haxe 4.2
