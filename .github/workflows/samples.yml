@@ -91,7 +91,7 @@ jobs:
           accept-license: true
       - uses: krdlab/setup-haxe@v1
         with:
-          haxe-version: 4.2.5
+          haxe-version: 4.3.3
       - name: Set up Haxelib dependencies
         run: |
           haxelib install lime 8.0.0 --quiet
