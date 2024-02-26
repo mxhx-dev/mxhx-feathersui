@@ -13,11 +13,11 @@ jobs:
       - uses: actions/checkout@v3
       - uses: krdlab/setup-haxe@v1
         with:
-          haxe-version: 4.2.5
+          haxe-version: 4.3.3
       - name: Set up Haxelib dependencies
         run: |
-          haxelib install lime 8.0.0 --quiet
-          haxelib install openfl 9.2.0 --quiet
+          haxelib install lime --quiet
+          haxelib install openfl --quiet
           haxelib install actuate --quiet
           haxelib git feathersui https://github.com/feathersui/feathersui-openfl.git --quiet
           haxelib git bindable https://github.com/mxhx-dev/bindable.git --quiet
