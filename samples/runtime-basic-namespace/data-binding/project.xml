@@ -24,6 +24,8 @@
 	<haxeflag name="--macro" value="addGlobalMetadata('feathers', '@:rtti', true, true, false)"/>
 	<haxeflag name="--macro" value="addGlobalMetadata('openfl', '@:rtti', true, true, false)"/>
 	<haxeflag name="--macro" value="addGlobalMetadata('lime', '@:rtti', true, true, false)"/>
+	<haxeflag name="--macro" value="addGlobalMetadata('haxe', '@:rtti', true, true, false)" if="flash"/>
+	<haxeflag name="--macro" value="addGlobalMetadata('flash', '@:rtti', true, true, false)" if="flash"/>
 	<haxeflag name="--macro" value="include('feathers')"/>
 
 	<icon path="assets/icons/feathersui-icon.svg"/>
