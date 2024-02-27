@@ -41,6 +41,10 @@ jobs:
           npx playwright install-deps
           haxelib run openfl build html5 -Dplaywright
           node playwright-runner.js
+      - name: Run C++ Tests
+        working-directory: test
+        run: |
+          haxelib run openfl test cpp
   tests-hashlink:
     strategy:
       matrix:
