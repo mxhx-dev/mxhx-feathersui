@@ -25,6 +25,7 @@ jobs:
           haxelib install lime --quiet
           haxelib install openfl --quiet
           haxelib install feathersui --quiet
+          haxelib git bindable https://github.com/mxhx-dev/bindable.git --quiet
           haxelib git mxhx-component https://github.com/mxhx-dev/mxhx-component.git --quiet
           haxelib git mxhx-runtime-component https://github.com/mxhx-dev/mxhx-runtime-component.git --quiet
           haxelib dev mxhx-feathersui $GITHUB_WORKSPACE
