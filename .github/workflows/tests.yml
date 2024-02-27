@@ -1,0 +1,46 @@
+name: Tests
+
+on:
+  push:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  tests:
+    strategy:
+      matrix:
+        haxe-version: [4.3.3]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: cedx/setup-hashlink@v3
+      - uses: krdlab/setup-haxe@v1
+        with:
+          haxe-version: ${{ matrix.haxe-version }}
+      - name: Set up Haxelib dependencies
+        run: |
+          haxelib install utest --quiet
+          haxelib install hxcpp --quiet
+          haxelib install lime --quiet
+          haxelib install openfl --quiet
+          haxelib install feathersui --quiet
+          haxelib git mxhx-component https://github.com/mxhx-dev/mxhx-component.git --quiet
+          haxelib git mxhx-runtime-component https://github.com/mxhx-dev/mxhx-runtime-component.git --quiet
+          haxelib dev mxhx-feathersui $GITHUB_WORKSPACE
+      - name: Run Neko Tests
+        working-directory: test
+        run: |
+          haxelib run openfl test neko
+      - name: Run HashLink Tests
+        working-directory: test
+        run: |
+          haxelib run openfl test hl
+      - name: Run HTML5 Tests
+        working-directory: test
+        run: |
+          npm ci
+          npx playwright install
+          npx playwright install-deps
+          haxelib run openfl build html5 -Dplaywright
+          node playwright-runner.js
