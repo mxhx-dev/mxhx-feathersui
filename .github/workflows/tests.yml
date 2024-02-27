@@ -7,7 +7,7 @@ on:
       - main
 
 jobs:
-  tests:
+  tests-misc:
     strategy:
       matrix:
         haxe-version: [4.3.3]
@@ -33,10 +33,6 @@ jobs:
         working-directory: test
         run: |
           haxelib run openfl test neko
-      - name: Run HashLink Tests
-        working-directory: test
-        run: |
-          haxelib run openfl test hl
       - name: Run HTML5 Tests
         working-directory: test
         run: |
@@ -45,3 +41,29 @@ jobs:
           npx playwright install-deps
           haxelib run openfl build html5 -Dplaywright
           node playwright-runner.js
+  tests-hashlink:
+    strategy:
+      matrix:
+        haxe-version: [4.3.3]
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: cedx/setup-hashlink@v3
+      - uses: krdlab/setup-haxe@v1
+        with:
+          haxe-version: ${{ matrix.haxe-version }}
+      - name: Set up Haxelib dependencies
+        run: |
+          haxelib install utest --quiet
+          haxelib install hxcpp --quiet
+          haxelib install lime --quiet
+          haxelib install openfl --quiet
+          haxelib install feathersui --quiet
+          haxelib git bindable https://github.com/mxhx-dev/bindable.git --quiet
+          haxelib git mxhx-component https://github.com/mxhx-dev/mxhx-component.git --quiet
+          haxelib git mxhx-runtime-component https://github.com/mxhx-dev/mxhx-runtime-component.git --quiet
+          haxelib dev mxhx-feathersui $GITHUB_WORKSPACE
+      - name: Run HashLink Tests
+        working-directory: test
+        run: |
+          haxelib run openfl test hl
