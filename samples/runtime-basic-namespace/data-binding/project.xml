@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	<meta title="Data Binding (MXHX Runtime)" package="com.feathersui.samples.mxhx.basic.runtime.DataBinding" version="1.0.0" company="Bowler Hat LLC"/>
+	<meta title="Data Binding (MXHX Runtime) — Feathers UI Samples" if="html5"/>
+	<app main="Main" file="DataBinding"/>
+
+	<window allow-high-dpi="true"/>
+	<window fps="60"/>
+	<window fps="0" if="html5"/>
+	<window background="#F8F8F8"/>
+
+	<source path="src"/>
+
+	<haxelib name="mxhx-runtime-component"/>
+	<haxelib name="mxhx-feathersui"/>
+
+	<haxedef name="feathersui_theme_manage_stage_color"/>
+	<!--
+		needed for bindable haxelib on C++ target only. ensures that field
+		access on null results in an exception instead of a segmentation fault.
+	-->
+	<haxedef name="HXCPP_CHECK_POINTER" if="cpp"/>
+
+	<haxeflag name="--macro" value="addGlobalMetadata('feathers', '@:rtti', true, true, false)"/>
+	<haxeflag name="--macro" value="addGlobalMetadata('openfl', '@:rtti', true, true, false)"/>
+	<haxeflag name="--macro" value="addGlobalMetadata('lime', '@:rtti', true, true, false)"/>
+	<haxeflag name="--macro" value="include('feathers')"/>
+
+	<icon path="assets/icons/feathersui-icon.svg"/>
+</project>

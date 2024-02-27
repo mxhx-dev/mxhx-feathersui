@@ -80,6 +80,13 @@ jobs:
           haxelib run openfl build html5
           haxelib run openfl build flash
           haxelib run openfl build hl
+      - name: Build samples/runtime-basic-namespace/data-binding
+        working-directory: samples/runtime-basic-namespace/data-binding
+        run: |
+          haxelib run openfl build neko
+          haxelib run openfl build html5
+          haxelib run openfl build flash
+          haxelib run openfl build hl
 
   build-air:
     runs-on: windows-latest
@@ -133,5 +140,9 @@ jobs:
           haxelib run openfl build air
       - name: Build samples/runtime-basic-namespace/hello-world
         working-directory: samples/runtime-basic-namespace/hello-world
+        run: |
+          haxelib run openfl build air
+      - name: Build samples/runtime-basic-namespace/data-binding
+        working-directory: samples/runtime-basic-namespace/data-binding
         run: |
           haxelib run openfl build air
