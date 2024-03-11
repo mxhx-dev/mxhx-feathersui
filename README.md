@@ -6,7 +6,7 @@ _Note:_ You will also need to install either [mxhx-component](https://github.com
 
 ## Minimum Requirements
 
-- Haxe 4.2
+- Haxe 4.0
 - Feathers UI 1.3
 
 ## Installation
