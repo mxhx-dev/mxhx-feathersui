@@ -23,7 +23,7 @@ jobs:
           haxelib git bindable https://github.com/mxhx-dev/bindable.git --quiet
           haxelib git mxhx-component https://github.com/mxhx-dev/mxhx-component.git --quiet
           haxelib git mxhx-runtime-component https://github.com/mxhx-dev/mxhx-runtime-component.git --quiet
-          haxelib dev mxhx-feathersui $GITHUB_WORKSPACE
+          haxelib dev mxhx-feathersui ${{ github.workspace }}
       - name: Build samples/build-macro-experimental-namespace/anchor-layout-three-column-header-and-footer
         working-directory: samples/build-macro-experimental-namespace/anchor-layout-three-column-header-and-footer
         run: |

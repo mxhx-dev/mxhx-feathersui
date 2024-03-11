@@ -28,7 +28,7 @@ jobs:
           haxelib git bindable https://github.com/mxhx-dev/bindable.git --quiet
           haxelib git mxhx-component https://github.com/mxhx-dev/mxhx-component.git --quiet
           haxelib git mxhx-runtime-component https://github.com/mxhx-dev/mxhx-runtime-component.git --quiet
-          haxelib dev mxhx-feathersui $GITHUB_WORKSPACE
+          haxelib dev mxhx-feathersui ${{ github.workspace }}
       - name: Run Neko Tests
         working-directory: test
         run: |
@@ -62,7 +62,7 @@ jobs:
           haxelib git bindable https://github.com/mxhx-dev/bindable.git --quiet
           haxelib git mxhx-component https://github.com/mxhx-dev/mxhx-component.git --quiet
           haxelib git mxhx-runtime-component https://github.com/mxhx-dev/mxhx-runtime-component.git --quiet
-          haxelib dev mxhx-feathersui $GITHUB_WORKSPACE
+          haxelib dev mxhx-feathersui ${{ github.workspace }}
       - name: Run HashLink Tests
         working-directory: test
         run: |
@@ -91,7 +91,7 @@ jobs:
           haxelib git bindable https://github.com/mxhx-dev/bindable.git --quiet
           haxelib git mxhx-component https://github.com/mxhx-dev/mxhx-component.git --quiet
           haxelib git mxhx-runtime-component https://github.com/mxhx-dev/mxhx-runtime-component.git --quiet
-          haxelib dev mxhx-feathersui $GITHUB_WORKSPACE
+          haxelib dev mxhx-feathersui ${{ github.workspace }}
           haxelib run lime config AIR_SDK ${{ env.AIR_HOME }}
       - name: Run AIR Tests
         working-directory: test
