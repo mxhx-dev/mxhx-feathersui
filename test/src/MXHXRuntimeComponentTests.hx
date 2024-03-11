@@ -5,7 +5,7 @@ import utest.Assert;
 import utest.Test;
 
 class MXHXRuntimeComponentTests extends Test {
-	public function testMXHXComponent():Void {
+	public function testMXHXRuntimeComponent():Void {
 		var idMap:Map<String, Any> = [];
 		var result = MXHXRuntimeComponent.withMarkup('
 			<f:LayoutGroup xmlns:mx="https://ns.mxhx.dev/2024/basic"
