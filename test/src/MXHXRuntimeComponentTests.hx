@@ -18,8 +18,11 @@ class MXHXRuntimeComponentTests extends Test {
 				</mx:Declarations>
 				<f:Button id="button" text="hi"/>
 			</f:LayoutGroup>
-		', {idMap: idMap});
-		var group = Std.downcast(result, LayoutGroup);
+		', {
+				idMap: idMap
+			});
+		Assert.isOfType(result, LayoutGroup);
+		var group = cast(result, LayoutGroup);
 		Assert.notNull(group);
 
 		Assert.equals(123.4, idMap.get("float"));
@@ -27,7 +30,8 @@ class MXHXRuntimeComponentTests extends Test {
 		Assert.isTrue(idMap.get("boolean"));
 		Assert.equals("hello", idMap.get("string"));
 
-		var button = Std.downcast(idMap.get("button"), Button);
+		Assert.isOfType(idMap.get("button"), Button);
+		var button = cast(idMap.get("button"), Button);
 		Assert.notNull(button);
 		Assert.equals("hi", button.text);
 		Assert.equals(result, button.parent);
