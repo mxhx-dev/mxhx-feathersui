@@ -67,3 +67,33 @@ jobs:
         working-directory: test
         run: |
           haxelib run openfl test hl
+  tests-air:
+    strategy:
+      matrix:
+        haxe-version: [4.0.5, 4.1.5, 4.2.5, 4.3.4]
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: joshtynjala/setup-adobe-air-action@v2
+        with:
+          air-version: "33.1"
+          accept-license: true
+      - uses: krdlab/setup-haxe@v1
+        with:
+          haxe-version: ${{ matrix.haxe-version }}
+      - name: Set up Haxelib dependencies
+        run: |
+          haxelib install utest --quiet
+          haxelib install hxcpp --quiet
+          haxelib install lime --quiet
+          haxelib install openfl --quiet
+          haxelib install feathersui --quiet
+          haxelib git bindable https://github.com/mxhx-dev/bindable.git --quiet
+          haxelib git mxhx-component https://github.com/mxhx-dev/mxhx-component.git --quiet
+          haxelib git mxhx-runtime-component https://github.com/mxhx-dev/mxhx-runtime-component.git --quiet
+          haxelib dev mxhx-feathersui $GITHUB_WORKSPACE
+          haxelib run lime config AIR_SDK ${{ env.AIR_HOME }}
+      - name: Run AIR Tests
+        working-directory: test
+        run: |
+          haxelib run openfl test air
