@@ -36,3 +36,16 @@ or
 ```xml
 <haxelib name="mxhx-runtime-component" />
 ```
+
+## Usage
+
+The Feathers UI namespace for MXHX is _https://ns.feathersui.com/mxhx_.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<f:Application xmlns:mx="https://ns.mxhx.dev/2024/mxhx"
+	xmlns:f="https://ns.feathersui.com/mxhx">
+	<mx:Declarations>
+	</mx:Declarations>
+</f:Application>
+```
