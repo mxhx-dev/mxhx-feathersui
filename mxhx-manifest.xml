@@ -7,6 +7,7 @@
   <component id="ButtonBar" class="feathers.controls.ButtonBar"/>
   <component id="Callout" class="feathers.controls.Callout"/>
   <component id="Check" class="feathers.controls.Check"/>
+  <component id="Collapsible" class="feathers.controls.Collapsible"/>
   <component id="ComboBox" class="feathers.controls.ComboBox"/>
   <component id="DatePicker" class="feathers.controls.DatePicker"/>
   <component id="Drawer" class="feathers.controls.Drawer"/>
