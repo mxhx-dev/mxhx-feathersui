@@ -84,6 +84,7 @@
   <component id="VerticalListFixedRowLayout" class="feathers.layout.VerticalListFixedRowLayout"/>
   <component id="VerticalListLayout" class="feathers.layout.VerticalListLayout"/>
 
+  <component id="ButtonMultiSkin" class="feathers.skins.ButtonMultiSkin"/>
   <component id="CircleSkin" class="feathers.skins.CircleSkin"/>
   <component id="DonutSkin" class="feathers.skins.DonutSkin"/>
   <component id="EllipseSkin" class="feathers.skins.EllipseSkin"/>
@@ -93,6 +94,8 @@
   <component id="PillSkin" class="feathers.skins.PillSkin"/>
   <component id="RectangleSkin" class="feathers.skins.RectangleSkin"/>
   <component id="TabSkin" class="feathers.skins.TabSkin"/>
+  <component id="TextInputMultiSkin" class="feathers.skins.TextInputMultiSkin"/>
+  <component id="ToggleButtonMultiSkin" class="feathers.skins.ToggleButtonMultiSkin"/>
   <component id="TopAndBottomBorderSkin" class="feathers.skins.TopAndBottomBorderSkin"/>
   <component id="TriangleSkin" class="feathers.skins.TriangleSkin"/>
   <component id="UnderlineSkin" class="feathers.skins.UnderlineSkin"/>
