@@ -45,7 +45,8 @@ jobs:
     strategy:
       matrix:
         haxe-version: [4.0.5, 4.1.5, 4.2.5, 4.3.4]
-    runs-on: macos-latest
+    #macos-14 is arm64, which setup-haxe doesn't support yet
+    runs-on: macos-13
     steps:
       - uses: actions/checkout@v3
       - uses: cedx/setup-hashlink@v3
