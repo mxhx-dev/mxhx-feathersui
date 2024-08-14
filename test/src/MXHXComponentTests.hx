@@ -3,6 +3,7 @@ import feathers.controls.Button;
 import feathers.controls.HDividedBox;
 import feathers.controls.Label;
 import feathers.controls.LayoutGroup;
+import feathers.controls.ListView;
 import feathers.controls.Panel;
 import feathers.controls.ScrollContainer;
 import feathers.controls.VDividedBox;
@@ -184,5 +185,32 @@ class MXHXComponentTests extends Test {
 		Assert.equals(result.button, child0);
 		var child1 = result.getChildAt(1);
 		Assert.equals(result.label, child1);
+	}
+
+	public function testMXHXComponent_ListViewItemToText():Void {
+		var result = MXHXComponent.withMarkup('
+			<f:ListView xmlns:mx="https://ns.mxhx.dev/2024/basic"
+				xmlns:f="https://ns.feathersui.com/mxhx">
+				<f:itemToText>
+					<mx:MapToCallback property="title"/>
+				</f:itemToText>
+				<f:ArrayCollection>
+					<mx:Struct id="one" title="One"/>
+					<mx:Struct id="two" title="Two"/>
+					<mx:Struct id="three" title="Three"/>
+				</f:ArrayCollection>
+			</f:ListView>
+		');
+		Assert.notNull(result);
+		Assert.isOfType(result, ListView);
+
+		Assert.notNull(result.itemToText);
+		Assert.isTrue(Reflect.isFunction(result.itemToText));
+		Assert.equals("My Title", result.itemToText({title: "My Title"}));
+
+		Assert.notNull(result.two);
+		var itemState = result.itemToItemState(result.two);
+		Assert.notNull(itemState);
+		Assert.equals("Two", itemState.text);
 	}
 }
