@@ -22,7 +22,7 @@ jobs:
         run: |
           haxelib install utest --quiet
           haxelib install hxcpp --quiet
-          haxelib install lime --quiet
+          haxelib install lime 8.1.3 --quiet
           haxelib install openfl --quiet
           haxelib install feathersui --quiet
           haxelib git bindable https://github.com/mxhx-dev/bindable.git --quiet
@@ -57,7 +57,7 @@ jobs:
         run: |
           haxelib install utest --quiet
           haxelib install hxcpp --quiet
-          haxelib install lime --quiet
+          haxelib install lime 8.1.3 --quiet
           haxelib install openfl --quiet
           haxelib install feathersui --quiet
           haxelib git bindable https://github.com/mxhx-dev/bindable.git --quiet
@@ -86,7 +86,7 @@ jobs:
         run: |
           haxelib install utest --quiet
           haxelib install hxcpp --quiet
-          haxelib install lime --quiet
+          haxelib install lime 8.1.3 --quiet
           haxelib install openfl --quiet
           haxelib install feathersui --quiet
           haxelib git bindable https://github.com/mxhx-dev/bindable.git --quiet
