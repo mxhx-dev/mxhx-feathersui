@@ -55,6 +55,10 @@
   <component id="RouterNavigator" class="feathers.controls.navigators.RouterNavigator"/>
   <component id="StackNavigator" class="feathers.controls.navigators.StackNavigator"/>
   <component id="TabNavigator" class="feathers.controls.navigators.TabNavigator"/>
+  <component id="PageItem" class="feathers.controls.mxhx.navigators.PageItem"/>
+  <component id="Route" class="feathers.controls.mxhx.navigators.Route"/>
+  <component id="StackItem" class="feathers.controls.mxhx.navigators.StackItem"/>
+  <component id="TabItem" class="feathers.controls.mxhx.navigators.TabItem"/>
 
   <component id="CalloutPopUpAdapter" class="feathers.controls.popups.CalloutPopUpAdapter"/>
   <component id="DropDownPopUpAdapter" class="feathers.controls.popups.DropDownPopUpAdapter"/>
