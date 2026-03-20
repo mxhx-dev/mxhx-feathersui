@@ -1,4 +1,4 @@
-name: Haxelib
+name: CI
 
 on:
   push:
@@ -24,7 +24,97 @@ jobs:
             NOTICE
             CHANGELOG.md
           if-no-files-found: error
-  api:
+  tests-misc:
+    strategy:
+      matrix:
+        haxe-version: [4.0.5, 4.1.5, 4.2.5, 4.3.7]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: cedx/setup-hashlink@v3
+      - uses: krdlab/setup-haxe@v2
+        with:
+          haxe-version: ${{ matrix.haxe-version }}
+      - name: Set up Haxelib dependencies
+        run: |
+          haxelib install utest --quiet
+          haxelib install hxcpp --quiet
+          haxelib install lime --quiet
+          haxelib install openfl --quiet
+          haxelib install feathersui --quiet
+          haxelib git bindable https://github.com/mxhx-dev/bindable.git --quiet
+          haxelib git mxhx-component https://github.com/mxhx-dev/mxhx-component.git --quiet
+          haxelib git mxhx-runtime-component https://github.com/mxhx-dev/mxhx-runtime-component.git --quiet
+          haxelib dev mxhx-feathersui ${{ github.workspace }}
+      - name: Run Neko Tests
+        working-directory: test
+        run: |
+          haxelib run openfl test neko
+      - name: Run HTML5 Tests
+        working-directory: test
+        run: |
+          npm ci
+          npx playwright install
+          npx playwright install-deps
+          haxelib run openfl build html5 -Dplaywright
+          node playwright-runner.js
+  tests-hashlink:
+    strategy:
+      matrix:
+        haxe-version: [4.0.5, 4.1.5, 4.2.5, 4.3.7]
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: cedx/setup-hashlink@v3
+      - uses: krdlab/setup-haxe@v2
+        with:
+          haxe-version: ${{ matrix.haxe-version }}
+      - name: Set up Haxelib dependencies
+        run: |
+          haxelib install utest --quiet
+          haxelib install hxcpp --quiet
+          haxelib install lime --quiet
+          haxelib install openfl --quiet
+          haxelib install feathersui --quiet
+          haxelib git bindable https://github.com/mxhx-dev/bindable.git --quiet
+          haxelib git mxhx-component https://github.com/mxhx-dev/mxhx-component.git --quiet
+          haxelib git mxhx-runtime-component https://github.com/mxhx-dev/mxhx-runtime-component.git --quiet
+          haxelib dev mxhx-feathersui ${{ github.workspace }}
+      - name: Run HashLink Tests
+        working-directory: test
+        run: |
+          haxelib run openfl test hl
+  tests-air:
+    strategy:
+      matrix:
+        haxe-version: [4.0.5, 4.1.5, 4.2.5, 4.3.7]
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: joshtynjala/setup-adobe-air-action@v2
+        with:
+          air-version: "33.1"
+          accept-license: true
+      - uses: krdlab/setup-haxe@v2
+        with:
+          haxe-version: ${{ matrix.haxe-version }}
+      - name: Set up Haxelib dependencies
+        run: |
+          haxelib install utest --quiet
+          haxelib install hxcpp --quiet
+          haxelib install lime --quiet
+          haxelib install openfl --quiet
+          haxelib install feathersui --quiet
+          haxelib git bindable https://github.com/mxhx-dev/bindable.git --quiet
+          haxelib git mxhx-component https://github.com/mxhx-dev/mxhx-component.git --quiet
+          haxelib git mxhx-runtime-component https://github.com/mxhx-dev/mxhx-runtime-component.git --quiet
+          haxelib dev mxhx-feathersui ${{ github.workspace }}
+          haxelib run lime config AIR_SDK ${{ env.AIR_HOME }}
+      - name: Run AIR Tests
+        working-directory: test
+        run: |
+          haxelib run openfl test air
+  samples-misc:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -33,16 +123,132 @@ jobs:
           haxe-version: 4.3.7
       - name: Set up Haxelib dependencies
         run: |
-          haxelib install dox --quiet
+          haxelib install lime --quiet
+          haxelib install openfl --quiet
+          haxelib install actuate --quiet
+          haxelib git feathersui https://github.com/feathersui/feathersui-openfl.git --quiet
           haxelib git bindable https://github.com/mxhx-dev/bindable.git --quiet
           haxelib git mxhx-component https://github.com/mxhx-dev/mxhx-component.git --quiet
           haxelib git mxhx-runtime-component https://github.com/mxhx-dev/mxhx-runtime-component.git --quiet
           haxelib dev mxhx-feathersui ${{ github.workspace }}
-      - name: Build API reference
-        working-directory: docs
-        run: haxe docs.hxml
-      - uses: actions/upload-artifact@v7
+      - name: Build samples/build-macro-experimental-namespace/anchor-layout-three-column-header-and-footer
+        working-directory: samples/build-macro-experimental-namespace/anchor-layout-three-column-header-and-footer
+        run: |
+          haxelib run openfl build neko
+          haxelib run openfl build html5
+          haxelib run openfl build flash
+          haxelib run openfl build hl
+      - name: Build samples/build-macro-experimental-namespace/calculator
+        working-directory: samples/build-macro-experimental-namespace/calculator
+        run: |
+          haxelib run openfl build neko
+          haxelib run openfl build html5
+          haxelib run openfl build flash
+          haxelib run openfl build hl
+      - name: Build samples/build-macro-experimental-namespace/custom-layout-group-item-renderer
+        working-directory: samples/build-macro-experimental-namespace/custom-layout-group-item-renderer
+        run: |
+          haxelib run openfl build neko
+          haxelib run openfl build html5
+          haxelib run openfl build flash
+          haxelib run openfl build hl
+      - name: Build samples/build-macro-experimental-namespace/data-binding
+        working-directory: samples/build-macro-experimental-namespace/data-binding
+        run: |
+          haxelib run openfl build neko
+          haxelib run openfl build html5
+          haxelib run openfl build flash
+          haxelib run openfl build hl
+      - name: Build samples/build-macro-experimental-namespace/hello-world
+        working-directory: samples/build-macro-experimental-namespace/hello-world
+        run: |
+          haxelib run openfl build neko
+          haxelib run openfl build html5
+          haxelib run openfl build flash
+          haxelib run openfl build hl
+      - name: Build samples/build-macro-experimental-namespace/horizontal-layout-percentage-sizing
+        working-directory: samples/build-macro-experimental-namespace/horizontal-layout-percentage-sizing
+        run: |
+          haxelib run openfl build neko
+          haxelib run openfl build html5
+          haxelib run openfl build flash
+          haxelib run openfl build hl
+      - name: Build samples/build-macro-experimental-namespace/mxhx-styles
+        working-directory: samples/build-macro-experimental-namespace/mxhx-styles
+        run: |
+          haxelib run openfl build neko
+          haxelib run openfl build html5
+          haxelib run openfl build flash
+          haxelib run openfl build hl
+      - name: Build samples/runtime-basic-namespace/hello-world
+        working-directory: samples/runtime-basic-namespace/hello-world
+        run: |
+          haxelib run openfl build neko
+          haxelib run openfl build html5
+          haxelib run openfl build flash
+          haxelib run openfl build hl
+      - name: Build samples/runtime-basic-namespace/data-binding
+        working-directory: samples/runtime-basic-namespace/data-binding
+        run: |
+          haxelib run openfl build neko
+          haxelib run openfl build html5
+          haxelib run openfl build flash
+          haxelib run openfl build hl
+  samples-air:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: joshtynjala/setup-adobe-air-action@v2
         with:
-          name: mxhx-feathersui-docs
-          path: bin/api/
-          if-no-files-found: error
+          air-version: "33.1"
+          accept-license: true
+      - uses: krdlab/setup-haxe@v2
+        with:
+          haxe-version: 4.3.7
+      - name: Set up Haxelib dependencies
+        run: |
+          haxelib install lime --quiet
+          haxelib install openfl --quiet
+          haxelib install actuate --quiet
+          haxelib git feathersui https://github.com/feathersui/feathersui-openfl.git --quiet
+          haxelib git bindable https://github.com/mxhx-dev/bindable.git --quiet
+          haxelib git mxhx-component https://github.com/mxhx-dev/mxhx-component.git --quiet
+          haxelib git mxhx-runtime-component https://github.com/mxhx-dev/mxhx-runtime-component.git --quiet
+          haxelib dev mxhx-feathersui ${{ github.workspace }}
+          haxelib run lime config AIR_SDK ${{ env.AIR_HOME }}
+      - name: Build samples/build-macro-experimental-namespace/anchor-layout-three-column-header-and-footer
+        working-directory: samples/build-macro-experimental-namespace/anchor-layout-three-column-header-and-footer
+        run: |
+          haxelib run openfl build air
+      - name: Build samples/build-macro-experimental-namespace/calculator
+        working-directory: samples/build-macro-experimental-namespace/calculator
+        run: |
+          haxelib run openfl build air
+      - name: Build samples/build-macro-experimental-namespace/custom-layout-group-item-renderer
+        working-directory: samples/build-macro-experimental-namespace/custom-layout-group-item-renderer
+        run: |
+          haxelib run openfl build air
+      - name: Build samples/build-macro-experimental-namespace/data-binding
+        working-directory: samples/build-macro-experimental-namespace/data-binding
+        run: |
+          haxelib run openfl build air
+      - name: Build samples/build-macro-experimental-namespace/hello-world
+        working-directory: samples/build-macro-experimental-namespace/hello-world
+        run: |
+          haxelib run openfl build air
+      - name: Build samples/build-macro-experimental-namespace/horizontal-layout-percentage-sizing
+        working-directory: samples/build-macro-experimental-namespace/horizontal-layout-percentage-sizing
+        run: |
+          haxelib run openfl build air
+      - name: Build samples/build-macro-experimental-namespace/mxhx-styles
+        working-directory: samples/build-macro-experimental-namespace/mxhx-styles
+        run: |
+          haxelib run openfl build air
+      - name: Build samples/runtime-basic-namespace/hello-world
+        working-directory: samples/runtime-basic-namespace/hello-world
+        run: |
+          haxelib run openfl build air
+      - name: Build samples/runtime-basic-namespace/data-binding
+        working-directory: samples/runtime-basic-namespace/data-binding
+        run: |
+          haxelib run openfl build air
