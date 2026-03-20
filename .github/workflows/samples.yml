@@ -10,10 +10,10 @@ jobs:
   build-misc:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: krdlab/setup-haxe@v1
+      - uses: actions/checkout@v6
+      - uses: krdlab/setup-haxe@v2
         with:
-          haxe-version: 4.3.4
+          haxe-version: 4.3.7
       - name: Set up Haxelib dependencies
         run: |
           haxelib install lime --quiet
@@ -91,14 +91,14 @@ jobs:
   build-air:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
       - uses: joshtynjala/setup-adobe-air-action@v2
         with:
           air-version: "33.1"
           accept-license: true
-      - uses: krdlab/setup-haxe@v1
+      - uses: krdlab/setup-haxe@v2
         with:
-          haxe-version: 4.3.4
+          haxe-version: 4.3.7
       - name: Set up Haxelib dependencies
         run: |
           haxelib install lime --quiet
