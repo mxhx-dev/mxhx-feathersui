@@ -32,6 +32,9 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - uses: cedx/setup-hashlink@v3
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22.x
       - uses: krdlab/setup-haxe@v2
         with:
           haxe-version: ${{ matrix.haxe-version }}
